@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Aditya Putra Ariska Pratama</title>
+    <meta name="description"
+        content="Portofolio Aditya Putra Ariska Pratama, seorang mahasiswa TRPL yang berfokus pada rekayasa perangkat lunak dan pengembangan web.">
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">Porto<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#proyek">Proyek</a></li>
+                <li><a href="#sertifikat">Sertifikat</a></li>
+                <li><a href="#kontak" class="btn-nav">Kontak</a></li>
+            </ul>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="beranda" class="hero">
+            <div class="hero-content">
+                <span class="greeting">Halo, saya</span>
+                <h1 class="name">Aditya Putra Ariska Pratama</h1>
+                <h2 class="role">Saya seorang <span id="typing-text"></span></h2>
+                <p class="description">Membangun pengalaman digital yang menarik, responsif, dan inovatif. Mari wujudkan
+                    ide cemerlang Anda bersama saya.</p>
+                <div class="cta-buttons">
+                    <a href="#proyek" class="btn primary">Lihat Karya Saya</a>
+                    <a href="#kontak" class="btn secondary">Hubungi Saya</a>
+                    <a href="assets/cv.pdf" target="_blank" download class="btn secondary"><i
+                            class="fas fa-download"></i> Unduh CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="blob-shape profile-blob">
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="about">
+            <div class="section-header">
+                <h2>Tentang <span>Saya</span></h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah mahasiswa semester 6 program studi <strong>D4 Teknologi Rekayasa Perangkat
+                            Lunak</strong> di <strong>Universitas Duta Bangsa</strong>. Saya sangat bersemangat di
+                        bidang pengembangan teknologi web dan rekayasa perangkat lunak.</p>
+                    <p>Sebagai seorang mahasiswa, saya terus belajar dan berinovasi untuk menciptakan solusi digital
+                        yang fungsional, performa tinggi, dan memiliki desain yang intuitif guna memberikan pengalaman
+                        pengguna yang berkesan.</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="6">0</h3>
+                        <p>Semester</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="15">0</h3>
+                        <p>Proyek Selesai</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="6">0</h3>
+                        <p>Sertifikat</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="keahlian" class="skills">
+            <div class="section-header">
+                <h2>Keahlian <span>Saya</span></h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend & Database</h3>
+                    <p>PHP, CodeIgniter, Python, Golang, MySQL, Supabase</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Tools & Software</h3>
+                    <p>Flutter, C#, Android Studio, Oracle Virtualbox</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cube"></i></div>
+                    <h3>Desain & 3D</h3>
+                    <p>Adobe Illustrator, Blender, Adobe Photoshop, Unity 3D</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="proyek" class="projects">
+            <div class="section-header">
+                <h2>Proyek <span>Terbaru</span></h2>
+                <div class="line"></div>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img placeholder-img1"></div>
+                    <div class="project-info">
+                        <h3>Informasi Cuaca Kota Dunia</h3>
+                        <p>Aplikasi web interaktif untuk memantau informasi dan prakiraan cuaca dari berbagai kota di dunia.</p>
+                        <div class="tags">
+                            <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                        </div>
+                        <a href="https://informasicuacakotadunia.vercel.app/" target="_blank" class="btn-link">Lihat Web <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img placeholder-img2"></div>
+                    <div class="project-info">
+                        <h3>Format Flow PDF Tools</h3>
+                        <p>Alat utilitas web untuk konversi dan pemrosesan file secara online dengan animasi antarmuka yang menarik.</p>
+                        <div class="tags">
+                            <span>HTML</span> <span>CSS</span> <span>JavaScript</span>
+                        </div>
+                        <a href="https://formatflowpdftools.vercel.app/" target="_blank" class="btn-link">Lihat Web <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img placeholder-img3"></div>
+                    <div class="project-info">
+                        <h3>Website Agensi Kreatif</h3>
+                        <p>Situs web portofolio dengan animasi mulus dan desain modern untuk agensi pemasaran.</p>
+                        <div class="tags">
+                            <span>HTML/CSS</span> <span>GSAP</span> <span>JavaScript</span>
+                        </div>
+                        <a href="#" class="btn-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sertifikat" class="projects">
+            <div class="section-header">
+                <h2>Sertifikat <span>Kegiatan</span></h2>
+                <div class="line"></div>
+            </div>
+            <div class="project-grid">
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img1"></div>
+                    <div class="project-info">
+                        <h3>AI Productivity and AI API Integration</h3>
+                        <p>Penyelenggara: Hacktiv8 Indonesia</p>
+                        <p class="cert-date">15 Mei 2026</p>
+                        <a href="assets/certs/cert1.jpeg" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img2"></div>
+                    <div class="project-info">
+                        <h3>Machine Learning Workshop 2026</h3>
+                        <p>Penyelenggara: Codelab Studio Indonesia</p>
+                        <p class="cert-date">21 Februari 2026</p>
+                        <a href="assets/certs/cert2.png" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img3"></div>
+                    <div class="project-info">
+                        <h3>Solo Techno On Ramadhan 2.0</h3>
+                        <p>Penyelenggara: Solo Techno Incubator</p>
+                        <p class="cert-date">13 Maret 2026</p>
+                        <a href="assets/certs/cert3.jpeg" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img4"></div>
+                    <div class="project-info">
+                        <h3>Kuliah Pakar: Innovation & Challenges</h3>
+                        <p>Penyelenggara: Universitas Anwar Medika</p>
+                        <p class="cert-date">07 November 2023</p>
+                        <a href="assets/certs/cert4.jpg" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img5"></div>
+                    <div class="project-info">
+                        <h3>Webinar AI Writing Assistant</h3>
+                        <p>Penyelenggara: AIRA</p>
+                        <p class="cert-date">04 Desember 2025</p>
+                        <a href="assets/certs/cert5.jpg" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card cert-card">
+                    <div class="project-img cert-img6"></div>
+                    <div class="project-info">
+                        <h3>Webinar Kepenulisan Ilmiah 2024</h3>
+                        <p>Penyelenggara: HIMADIKPA FKIP UNS</p>
+                        <p class="cert-date">27 Juli 2024</p>
+                        <a href="assets/certs/cert6.png" target="_blank" class="btn-link">Lihat Sertifikat <i
+                                class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="contact">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h2>Mari Bekerja <span>Bersama</span></h2>
+                    <p>Apakah Anda memiliki ide proyek atau hanya ingin menyapa? Jangan ragu untuk menghubungi saya!</p>
+                    <div class="contact-methods">
+                        <div class="method">
+                            <i class="fas fa-envelope"></i>
+                            <span>adityaprtma201@gmail.com</span>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Boyolali, Jawa Tengah, Indonesia</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/adittttttttt123" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/aditya-putra-ariska-pratama-675b5040b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/adityaputraaapp" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="input-group">
+                        <input type="text" id="name" required placeholder=" ">
+                        <label for="name">Nama Anda</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" required placeholder=" ">
+                        <label for="email">Email Anda</label>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" required placeholder=" " rows="4"></textarea>
+                        <label for="message">Pesan Anda</label>
+                    </div>
+                    <button type="submit" class="btn primary submit-btn">
+                        <span>Kirim Pesan</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Aditya Putra Ariska Pratama. Dibuat dengan <i class="fas fa-heart"></i> & Kode.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
