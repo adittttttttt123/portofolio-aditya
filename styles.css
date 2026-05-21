@@ -434,6 +434,7 @@ nav.scrolled {
 .placeholder-img1 { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
 .placeholder-img2 { background: linear-gradient(135deg, #065f46, #10b981); }
 .placeholder-img3 { background: linear-gradient(135deg, #4c1d95, #8b5cf6); }
+.placeholder-img4 { background: linear-gradient(135deg, #be123c, #f43f5e); }
 
 /* Certificates */
 .cert-img1 { background: url('assets/certs/cert1.jpeg') center/cover, linear-gradient(135deg, #b45309, #f59e0b); }
