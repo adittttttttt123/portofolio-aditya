@@ -88,7 +88,8 @@ const animateCounters = () => {
                 counter.innerText = Math.ceil(count + inc);
                 setTimeout(updateCount, 20);
             } else {
-                counter.innerText = target + (target > 10 ? '+' : '');
+                const suffix = counter.getAttribute('data-suffix') || (target > 10 ? '+' : '');
+                counter.innerText = target + suffix;
             }
         };
 
