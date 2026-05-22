@@ -278,17 +278,21 @@
                         <a href="https://www.instagram.com/adityaputraaapp" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <form class="contact-form">
+                <form action="https://formsubmit.co/adityaprtma201@gmail.com" method="POST" class="contact-form">
+                    <!-- FormSubmit Configurations -->
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="Pesan Baru dari Portofolio!">
+                    
                     <div class="input-group">
-                        <input type="text" id="name" required placeholder=" ">
+                        <input type="text" id="name" name="name" required placeholder=" ">
                         <label for="name">Nama Anda</label>
                     </div>
                     <div class="input-group">
-                        <input type="email" id="email" required placeholder=" ">
+                        <input type="email" id="email" name="email" required placeholder=" ">
                         <label for="email">Email Anda</label>
                     </div>
                     <div class="input-group">
-                        <textarea id="message" required placeholder=" " rows="4"></textarea>
+                        <textarea id="message" name="message" required placeholder=" " rows="4"></textarea>
                         <label for="message">Pesan Anda</label>
                     </div>
                     <button type="submit" class="btn primary submit-btn">
