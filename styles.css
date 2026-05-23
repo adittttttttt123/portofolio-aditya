@@ -1277,7 +1277,110 @@ nav.scrolled {
     100% { top: 100%; opacity: 0; }
 }
 
-/* Certificates */
+/* Certificates & Holographic Hover Animations */
+.cert-card {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.cert-card .project-img {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glass Glare Sweep Effect */
+.cert-card .project-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.15) 70%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    transition: left 0.75s cubic-bezier(0.25, 0.8, 0.25, 1);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Holographic Iridescent Foil Shine Effect (mix-blend-mode ensures 100% photo readability) */
+.cert-card .project-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(109, 40, 217, 0.2) 0%,
+        rgba(59, 130, 246, 0.2) 35%,
+        rgba(16, 185, 129, 0.2) 70%,
+        rgba(239, 68, 68, 0.2) 100%
+    );
+    mix-blend-mode: color-dodge;
+    opacity: 0;
+    transition: opacity 0.5s ease, background-position 0.5s ease;
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Verified Badge Overlay */
+.cert-card::after {
+    content: 'VERIFIED';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(16, 185, 129, 0.9);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    opacity: 0.85;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    pointer-events: none;
+    z-index: 4;
+    transition: all 0.3s ease;
+}
+
+/* Hover Interactive triggers */
+.cert-card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+}
+
+.cert-card:hover .project-img::before {
+    left: 150%;
+}
+
+.cert-card:hover .project-img::after {
+    opacity: 1;
+    background-position: 100% 100%;
+}
+
+.cert-card:hover::after {
+    opacity: 1;
+    background: #10b981;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.6);
+    transform: scale(1.05);
+}
 .cert-img1 { background: url('assets/certs/cert1.jpeg') center/cover, linear-gradient(135deg, #b45309, #f59e0b); }
 .cert-img2 { background: url('assets/certs/cert2.png') center/cover, linear-gradient(135deg, #831843, #ec4899); }
 .cert-img3 { background: url('assets/certs/cert3.jpeg') center/cover, linear-gradient(135deg, #14532d, #22c55e); }
