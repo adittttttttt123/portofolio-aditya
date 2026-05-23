@@ -37,9 +37,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Typing Effect
 const typingText = document.getElementById('typing-text');
 const words = [
-    'Full-Stack Developer',
-    'Frontend Engineer',
-    '3D Artist',
     'Software Engineering Student'
 ];
 let wordIndex = 0;
