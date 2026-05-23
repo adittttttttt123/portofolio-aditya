@@ -416,7 +416,7 @@ nav.scrolled {
 .project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-    border-color: var(--glass-border);
+    border-color: var(--accent);
 }
 
 .project-img {
