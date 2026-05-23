@@ -1277,6 +1277,229 @@ nav.scrolled {
     100% { top: 100%; opacity: 0; }
 }
 
+/* 8. Bot SSO Kampus (Telegram Chat & Security Gate Animation) */
+.placeholder-img-ssobot {
+    background: radial-gradient(circle at center, #0b0f19 0%, #1a102f 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ssobot-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+.ssobot-phone {
+    width: 130px;
+    height: 190px;
+    background: #0f172a;
+    border: 3px solid #334155;
+    border-radius: 18px;
+    padding: 8px 6px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.project-card:hover .ssobot-phone {
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.3);
+}
+
+.phone-screen {
+    flex-grow: 1;
+    background: #090d16;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.chat-bubble {
+    font-size: 0.5rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    max-width: 85%;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(5px);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.chat-bubble.user {
+    align-self: flex-end;
+    background: #4f46e5;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+.chat-bubble.bot {
+    align-self: flex-start;
+    background: #1e293b;
+    color: #e2e8f0;
+    border-bottom-left-radius: 2px;
+}
+
+.chat-bubble.user.cmd1 {
+    animation: chatStep1 8s infinite;
+}
+
+.chat-bubble.bot.captcha-bubble {
+    animation: chatStep2 8s infinite;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 4px;
+}
+
+.captcha-img {
+    background: #e2e8f0;
+    color: #0f172a;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 0.45rem;
+    letter-spacing: 2px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    text-align: center;
+    transform: skew(-8deg);
+    border: 0.5px solid #94a3b8;
+    position: relative;
+    overflow: hidden;
+}
+
+.captcha-img::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 0; width: 100%; height: 1px;
+    background: #475569;
+    transform: translateY(-50%) rotate(4deg);
+}
+
+.chat-bubble.user.ans {
+    animation: chatStep3 8s infinite;
+}
+
+.chat-bubble.bot.success-bubble {
+    animation: chatStep4 8s infinite;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #10b981;
+    font-weight: bold;
+}
+
+@keyframes chatStep1 {
+    0%, 100% { opacity: 0; transform: translateY(5px); }
+    6%, 95% { opacity: 1; transform: translateY(0); }
+}
+@keyframes chatStep2 {
+    0%, 20%, 100% { opacity: 0; transform: translateY(5px); }
+    25%, 95% { opacity: 1; transform: translateY(0); }
+}
+@keyframes chatStep3 {
+    0%, 45%, 100% { opacity: 0; transform: translateY(5px); }
+    50%, 95% { opacity: 1; transform: translateY(0); }
+}
+@keyframes chatStep4 {
+    0%, 70%, 100% { opacity: 0; transform: translateY(5px); }
+    75%, 95% { opacity: 1; transform: translateY(0); }
+}
+
+.ssobot-portal {
+    width: 60px;
+    height: 60px;
+    background: rgba(109, 40, 217, 0.1);
+    border: 1.5px solid rgba(109, 40, 217, 0.3);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    color: #a78bfa;
+    font-size: 1.5rem;
+    box-shadow: 0 0 15px rgba(109, 40, 217, 0.2);
+    transition: var(--transition);
+}
+
+.project-card:hover .ssobot-portal {
+    background: rgba(109, 40, 217, 0.2);
+    border-color: var(--accent);
+    color: #c084fc;
+    box-shadow: 0 0 25px rgba(109, 40, 217, 0.4);
+    transform: scale(1.1);
+}
+
+.portal-lock {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 24px;
+    height: 24px;
+    background: #0f172a;
+    border: 1.5px solid #ef4444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+    animation: lockBorderCycle 8s infinite;
+}
+
+.portal-lock .lock-icon,
+.portal-lock .unlock-icon {
+    position: absolute;
+    transition: opacity 0.3s;
+}
+
+.portal-lock .lock-icon {
+    color: #ef4444;
+    opacity: 1;
+    animation: lockIconCycle 8s infinite;
+}
+
+.portal-lock .unlock-icon {
+    color: #10b981;
+    opacity: 0;
+    animation: unlockIconCycle 8s infinite;
+}
+
+@keyframes lockBorderCycle {
+    0%, 74%, 100% {
+        border-color: #ef4444;
+        box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+    }
+    75%, 99% {
+        border-color: #10b981;
+        box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    }
+}
+
+@keyframes lockIconCycle {
+    0%, 74%, 100% { opacity: 1; }
+    75%, 99% { opacity: 0; }
+}
+
+@keyframes unlockIconCycle {
+    0%, 74%, 100% { opacity: 0; }
+    75%, 99% { opacity: 1; }
+}
+
 /* Certificates & Glass Hover Animations */
 .cert-card {
     position: relative;
