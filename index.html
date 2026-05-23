@@ -73,7 +73,7 @@
                         <p>Semester</p>
                     </div>
                     <div class="stat-item">
-                        <h3 class="counter" data-target="7" data-suffix="+">0</h3>
+                        <h3 class="counter" data-target="8" data-suffix="+">0</h3>
                         <p>Proyek Selesai</p>
                     </div>
                     <div class="stat-item">
@@ -315,6 +315,78 @@
                             <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Chart.js</span>
                         </div>
                         <a href="https://deepcalc-mu.vercel.app/" target="_blank" class="btn-link">Lihat Web <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img placeholder-img-cyber">
+                        <div class="cyber-container">
+                            <div class="cyber-panel wireshark-panel">
+                                <div class="panel-header">
+                                    <span class="panel-dot red"></span>
+                                    <span class="panel-dot yellow"></span>
+                                    <span class="panel-dot green"></span>
+                                    <span class="panel-title">wireshark - eth0</span>
+                                </div>
+                                <div class="panel-content wireshark-content">
+                                    <div class="packet-header">
+                                        <span>No.</span>
+                                        <span>Time</span>
+                                        <span>Source</span>
+                                        <span>Protocol</span>
+                                        <span>Info</span>
+                                    </div>
+                                    <div class="packet-list">
+                                        <div class="packet arp">
+                                            <span>1</span>
+                                            <span>0.00</span>
+                                            <span>192.168.56.101</span>
+                                            <span class="badge-proto arp">ARP</span>
+                                            <span>Who has 192.168.56.100?</span>
+                                        </div>
+                                        <div class="packet tcp">
+                                            <span>2</span>
+                                            <span>0.04</span>
+                                            <span>192.168.56.102</span>
+                                            <span class="badge-proto tcp">TCP</span>
+                                            <span>80 → 44321 [SYN, ACK]</span>
+                                        </div>
+                                        <div class="packet http">
+                                            <span>3</span>
+                                            <span>0.08</span>
+                                            <span>192.168.56.101</span>
+                                            <span class="badge-proto http">HTTP</span>
+                                            <span>GET /login.php HTTP/1.1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cyber-panel sqlmap-panel">
+                                <div class="panel-header">
+                                    <span class="panel-dot red"></span>
+                                    <span class="panel-dot yellow"></span>
+                                    <span class="panel-dot green"></span>
+                                    <span class="panel-title">sqlmap - target</span>
+                                </div>
+                                <div class="panel-content sqlmap-content">
+                                    <div class="sqlmap-line info">[i] testing connection...</div>
+                                    <div class="sqlmap-line success">[+] parameter 'id' is vulnerable</div>
+                                    <div class="sqlmap-line alert">[CRITICAL] dumping db...</div>
+                                    <div class="sqlmap-loader">
+                                        <span class="loader-dot"></span>
+                                        <span class="loader-dot"></span>
+                                        <span class="loader-dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Network Security Assessment & Penetration Testing</h3>
+                        <p>Laporan pengujian keamanan jaringan dan analisis trafik pada lingkungan tervirtualisasi. Proyek ini mencakup host discovery menggunakan Netdiscover, pemindaian port dengan Nmap, analisis mendalam paket protokol (ARP, TCP, HTTP) melalui Wireshark, serta simulasi pengujian kerentanan database berbasis SQL Injection menggunakan SQLMap.</p>
+                        <div class="tags">
+                            <span>Cybersecurity</span> <span>Penetration Testing</span> <span>Wireshark</span> <span>Nmap</span> <span>VirtualBox</span> <span>Network Analysis</span>
+                        </div>
+                        <a href="assets/UAS KEAMANAN PERANGKAT LUNAK.pdf" target="_blank" class="btn-link">Lihat Dokumentasi Teknis <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>

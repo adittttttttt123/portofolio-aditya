@@ -1059,6 +1059,224 @@ nav.scrolled {
     100% { left: 75%; top: 50%; opacity: 0; }
 }
 
+/* 7. Cyber Security Assessment (Wireshark & SQLmap Mockups) */
+.placeholder-img-cyber {
+    background: radial-gradient(circle at center, #020617 0%, #0b1329 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cyber-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 10px;
+}
+
+.cyber-panel {
+    background: rgba(10, 15, 30, 0.85);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.wireshark-panel {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 75%;
+    height: 110px;
+    z-index: 2;
+}
+
+.sqlmap-panel {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 70%;
+    height: 95px;
+    z-index: 3;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.project-card:hover .wireshark-panel {
+    border-color: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
+    transform: translateY(-2px);
+}
+
+.project-card:hover .sqlmap-panel {
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.25);
+    transform: translateY(-2px);
+}
+
+.panel-header {
+    background: rgba(15, 23, 42, 0.95);
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.panel-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+.panel-dot.red { background: #ef4444; }
+.panel-dot.yellow { background: #f59e0b; }
+.panel-dot.green { background: #10b981; }
+
+.panel-title {
+    font-size: 0.55rem;
+    color: var(--text-secondary);
+    margin-left: 6px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+.panel-content {
+    padding: 6px 8px;
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 0.55rem;
+    color: #e2e8f0;
+    line-height: 1.3;
+    overflow: hidden;
+}
+
+.wireshark-content {
+    background: #0d1b2a;
+}
+
+.packet-header {
+    display: grid;
+    grid-template-columns: 20px 30px 65px 35px 1fr;
+    color: #8da9c4;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(141, 169, 196, 0.2);
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+.packet-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.packet {
+    display: grid;
+    grid-template-columns: 20px 30px 65px 35px 1fr;
+    padding: 2px 0;
+    border-radius: 2px;
+    transition: background-color 0.2s;
+}
+
+.packet.arp {
+    background: rgba(224, 242, 254, 0.05);
+    color: #7dd3fc;
+}
+
+.packet.tcp {
+    background: rgba(238, 242, 255, 0.05);
+    color: #a5b4fc;
+}
+
+.packet.http {
+    background: rgba(240, 253, 244, 0.05);
+    color: #86efac;
+}
+
+.badge-proto {
+    font-size: 0.45rem;
+    padding: 0px 3px;
+    border-radius: 2px;
+    font-weight: bold;
+    text-align: center;
+    width: max-content;
+}
+
+.badge-proto.arp { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 0.5px solid rgba(56, 189, 248, 0.4); }
+.badge-proto.tcp { background: rgba(99, 102, 241, 0.2); color: #6366f1; border: 0.5px solid rgba(99, 102, 241, 0.4); }
+.badge-proto.http { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 0.5px solid rgba(34, 197, 94, 0.4); }
+
+.sqlmap-content {
+    background: #070f1e;
+    color: #38bdf8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sqlmap-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sqlmap-line.info { color: #94a3b8; }
+.sqlmap-line.success { color: #4ade80; font-weight: bold; }
+.sqlmap-line.alert { color: #f87171; font-weight: bold; animation: sqlAlertPulse 1.5s ease-in-out infinite alternate; }
+
+.sqlmap-loader {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.loader-dot {
+    width: 4px;
+    height: 4px;
+    background-color: #38bdf8;
+    border-radius: 50%;
+    animation: sqlDotBounce 1.2s infinite ease-in-out both;
+}
+
+.loader-dot:nth-child(1) { animation-delay: -0.32s; }
+.loader-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes sqlDotBounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+@keyframes sqlAlertPulse {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; text-shadow: 0 0 4px #f87171; }
+}
+
+/* Sweep laser scanner effect for the cyber container */
+.cyber-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    animation: cyberSweep 4s linear infinite;
+    pointer-events: none;
+    z-index: 4;
+}
+
+@keyframes cyberSweep {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% { top: 100%; opacity: 0; }
+}
+
 /* Certificates */
 .cert-img1 { background: url('assets/certs/cert1.jpeg') center/cover, linear-gradient(135deg, #b45309, #f59e0b); }
 .cert-img2 { background: url('assets/certs/cert2.png') center/cover, linear-gradient(135deg, #831843, #ec4899); }
