@@ -1555,6 +1555,7 @@ nav.scrolled {
 .cert-img8 { background: url('assets/certs/cert8.jpeg') center/cover, linear-gradient(135deg, #4f46e5, #818cf8); }
 .cert-img9 { background: url('assets/certs/cert9.jpeg') center/cover, linear-gradient(135deg, #c026d3, #e879f9); }
 .cert-img10 { background: url('assets/certs/cert10.jpeg') center/cover, linear-gradient(135deg, #059669, #34d399); }
+.cert-img11 { background: url('assets/certs/cert11.jpeg') center/cover, linear-gradient(135deg, #0f172a, #1e293b); }
 .cert-date {
     font-size: 0.85rem !important;
     color: var(--accent) !important;
