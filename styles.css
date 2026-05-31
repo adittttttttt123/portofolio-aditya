@@ -88,6 +88,10 @@ section {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+.btn span {
+    color: inherit;
+}
+
 .btn.primary {
     background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
     color: white;
@@ -1875,6 +1879,11 @@ nav.scrolled {
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
+    color: #ffffff;
+}
+
+.submit-btn span {
+    color: #ffffff;
 }
 
 /* Footer */
