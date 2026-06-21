@@ -347,59 +347,148 @@ nav.scrolled {
 }
 
 /* Skills */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+/* Skills Marquee Section */
+.skills-marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+    padding: 2rem 0;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
 }
 
-.skill-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--glass-border);
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
-    text-align: center;
-    transition: var(--transition);
-    position: relative;
+/* Beautiful fading gradient overlays on the sides */
+.skills-marquee-wrapper::before,
+.skills-marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .skills-marquee-wrapper::before,
+    .skills-marquee-wrapper::after {
+        width: 60px;
+    }
+}
+
+.skills-marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-main) 20%, transparent 100%);
+}
+
+.skills-marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-main) 20%, transparent 100%);
+}
+
+.marquee-row {
+    display: flex;
+    width: 100%;
     overflow: hidden;
 }
 
-.skill-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, var(--accent-glow), transparent);
-    opacity: 0;
-    transition: var(--transition);
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    will-change: transform;
 }
 
-.skill-card:hover {
-    transform: translateY(-10px);
+/* LTR and RTL Animations */
+.marquee-row-ltr .marquee-track {
+    animation: scroll-ltr 25s linear infinite;
+}
+
+.marquee-row-rtl .marquee-track {
+    animation: scroll-rtl 25s linear infinite;
+}
+
+/* Pause animations on hover */
+.skills-marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.skill-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.8rem 1.8rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.skill-pill:hover {
+    background: #161616;
     border-color: var(--accent);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(109, 40, 217, 0.25);
 }
 
-.skill-card:hover::before { opacity: 1; }
-
-.skill-icon {
-    font-size: 3rem;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
+.skill-pill-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.skill-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
+.skill-pill:hover .skill-pill-icon {
+    transform: rotate(8deg) scale(1.1);
 }
 
-.skill-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    position: relative;
-    z-index: 1;
+.skill-pill-text {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* White filter for specific icons on dark bg */
+.github-icon-white {
+    filter: brightness(0) invert(1);
+}
+
+.vercel-icon-white {
+    color: #ffffff;
+}
+
+.nextjs-icon-white {
+    filter: invert(1) brightness(2);
+}
+
+@keyframes scroll-ltr {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes scroll-rtl {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Projects */
@@ -1254,223 +1343,7 @@ nav.scrolled {
     100% { left: 75%; top: 50%; opacity: 0; }
 }
 
-/* 7. Cyber Security Assessment (Wireshark & SQLmap Mockups) */
-.placeholder-img-cyber {
-    background: radial-gradient(circle at center, #020617 0%, #0b1329 100%);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.cyber-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    padding: 10px;
-}
-
-.cyber-panel {
-    background: rgba(10, 15, 30, 0.85);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: var(--transition);
-}
-
-.wireshark-panel {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    width: 75%;
-    height: 110px;
-    z-index: 2;
-}
-
-.sqlmap-panel {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 70%;
-    height: 95px;
-    z-index: 3;
-    border-color: rgba(59, 130, 246, 0.2);
-}
-
-.project-card:hover .wireshark-panel {
-    border-color: rgba(16, 185, 129, 0.5);
-    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.25);
-    transform: translateY(-2px);
-}
-
-.project-card:hover .sqlmap-panel {
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.25);
-    transform: translateY(-2px);
-}
-
-.panel-header {
-    background: rgba(15, 23, 42, 0.95);
-    padding: 5px 8px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.panel-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-}
-.panel-dot.red { background: #ef4444; }
-.panel-dot.yellow { background: #f59e0b; }
-.panel-dot.green { background: #10b981; }
-
-.panel-title {
-    font-size: 0.55rem;
-    color: var(--text-secondary);
-    margin-left: 6px;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-}
-
-.panel-content {
-    padding: 6px 8px;
-    flex-grow: 1;
-    font-family: monospace;
-    font-size: 0.55rem;
-    color: #e2e8f0;
-    line-height: 1.3;
-    overflow: hidden;
-}
-
-.wireshark-content {
-    background: #0d1b2a;
-}
-
-.packet-header {
-    display: grid;
-    grid-template-columns: 20px 30px 65px 35px 1fr;
-    color: #8da9c4;
-    font-weight: bold;
-    border-bottom: 1px solid rgba(141, 169, 196, 0.2);
-    padding-bottom: 3px;
-    margin-bottom: 3px;
-}
-
-.packet-list {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.packet {
-    display: grid;
-    grid-template-columns: 20px 30px 65px 35px 1fr;
-    padding: 2px 0;
-    border-radius: 2px;
-    transition: background-color 0.2s;
-}
-
-.packet.arp {
-    background: rgba(224, 242, 254, 0.05);
-    color: #7dd3fc;
-}
-
-.packet.tcp {
-    background: rgba(238, 242, 255, 0.05);
-    color: #a5b4fc;
-}
-
-.packet.http {
-    background: rgba(240, 253, 244, 0.05);
-    color: #86efac;
-}
-
-.badge-proto {
-    font-size: 0.45rem;
-    padding: 0px 3px;
-    border-radius: 2px;
-    font-weight: bold;
-    text-align: center;
-    width: max-content;
-}
-
-.badge-proto.arp { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 0.5px solid rgba(56, 189, 248, 0.4); }
-.badge-proto.tcp { background: rgba(99, 102, 241, 0.2); color: #6366f1; border: 0.5px solid rgba(99, 102, 241, 0.4); }
-.badge-proto.http { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 0.5px solid rgba(34, 197, 94, 0.4); }
-
-.sqlmap-content {
-    background: #070f1e;
-    color: #38bdf8;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.sqlmap-line {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.sqlmap-line.info { color: #94a3b8; }
-.sqlmap-line.success { color: #4ade80; font-weight: bold; }
-.sqlmap-line.alert { color: #f87171; font-weight: bold; animation: sqlAlertPulse 1.5s ease-in-out infinite alternate; }
-
-.sqlmap-loader {
-    display: flex;
-    gap: 4px;
-    margin-top: 4px;
-}
-
-.loader-dot {
-    width: 4px;
-    height: 4px;
-    background-color: #38bdf8;
-    border-radius: 50%;
-    animation: sqlDotBounce 1.2s infinite ease-in-out both;
-}
-
-.loader-dot:nth-child(1) { animation-delay: -0.32s; }
-.loader-dot:nth-child(2) { animation-delay: -0.16s; }
-
-@keyframes sqlDotBounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
-}
-
-@keyframes sqlAlertPulse {
-    0% { opacity: 0.6; }
-    100% { opacity: 1; text-shadow: 0 0 4px #f87171; }
-}
-
-/* Sweep laser scanner effect for the cyber container */
-.cyber-container::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #10b981, transparent);
-    top: 0;
-    left: 0;
-    opacity: 0.3;
-    animation: cyberSweep 4s linear infinite;
-    pointer-events: none;
-    z-index: 4;
-}
-
-@keyframes cyberSweep {
-    0% { top: 0%; opacity: 0; }
-    10% { opacity: 0.4; }
-    90% { opacity: 0.4; }
-    100% { top: 100%; opacity: 0; }
-}
 
 /* 8. Bot SSO Kampus (Telegram Chat & Security Gate Animation) */
 .placeholder-img-ssobot {
@@ -1694,6 +1567,170 @@ nav.scrolled {
     0%, 74%, 100% { opacity: 0; }
     75%, 99% { opacity: 1; }
 }
+
+/* 9. Blender Animation (Camera Viewfinder & Motion Spline) */
+.placeholder-img-blender-anim {
+    background: radial-gradient(circle at center, #241409 0%, #090a0f 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blender-anim-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.camera-rec {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #ef4444;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+
+.rec-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    animation: blinkRec 1s infinite alternate;
+}
+
+@keyframes blinkRec {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+.camera-resolution {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    z-index: 5;
+}
+
+.camera-corners {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.camera-corners .corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.corner.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.corner.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.corner.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.corner.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.anim-spline-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.anim-object {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #f97316;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #f97316, 0 0 5px #ffffff;
+    animation: followSpline 4s infinite ease-in-out;
+    z-index: 3;
+}
+
+@keyframes followSpline {
+    0% { left: 15%; top: 50%; transform: scale(0.8); }
+    25% { left: 35%; top: 25%; transform: scale(1.1); }
+    50% { left: 50%; top: 50%; transform: scale(1); }
+    75% { left: 70%; top: 75%; transform: scale(0.9); }
+    100% { left: 15%; top: 50%; transform: scale(0.8); }
+}
+
+.anim-timeline {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    height: 16px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.timeline-playhead {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #f97316;
+    box-shadow: 0 0 8px #f97316;
+    animation: playTimeline 4s infinite ease-in-out;
+}
+
+@keyframes playTimeline {
+    0% { left: 15%; }
+    25% { left: 35%; }
+    50% { left: 50%; }
+    75% { left: 70%; }
+    100% { left: 15%; }
+}
+
+.timeline-keyframes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+.keyframe {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    border-radius: 1px;
+}
+
+.keyframe.k1 { margin-left: 15%; }
+.keyframe.k2 { margin-left: 15%; }
+.keyframe.k3 { margin-left: 15%; }
+.keyframe.k4 { margin-left: 15%; }
 
 /* Certificates & Glass Hover Animations */
 .cert-card {
