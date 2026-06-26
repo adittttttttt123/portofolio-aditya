@@ -301,16 +301,34 @@ nav.scrolled {
 /* About Section */
 .about-content {
     display: flex;
-    gap: 4rem;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .about-text {
-    flex: 1;
-    font-size: 1.1rem;
+    width: 100%;
+    font-size: 1.15rem;
     color: var(--text-secondary);
+    text-align: center;
 }
-.about-text p { margin-bottom: 1.5rem; }
+.about-text p { 
+    margin-bottom: 1.5rem; 
+}
+
+/* Scroll Reveal Animation */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.reveal-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .stats {
     flex: 1;

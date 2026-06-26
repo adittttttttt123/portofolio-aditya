@@ -107,3 +107,19 @@ const animateCounters = () => {
 };
 
 animateCounters();
+
+// Scroll Reveal Animation for About Text
+const revealTexts = document.querySelectorAll('.reveal-text');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+revealTexts.forEach((text, index) => {
+    text.style.transitionDelay = `${index * 0.2}s`;
+    revealObserver.observe(text);
+});
