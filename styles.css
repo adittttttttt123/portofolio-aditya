@@ -504,6 +504,10 @@ nav.scrolled {
     overflow: hidden;
     border: 1px solid var(--glass-border);
     transition: var(--transition);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    height: 250px;
 }
 
 .project-card:hover {
@@ -513,11 +517,12 @@ nav.scrolled {
 }
 
 .project-img {
-    width: 100%;
-    height: 220px;
+    width: 35%;
+    height: 100%;
     background-size: cover;
     background-position: center;
     transition: transform 0.5s ease;
+    flex-shrink: 0;
 }
 
 .project-card:hover .project-img {
@@ -1873,31 +1878,64 @@ nav.scrolled {
 }
 
 /* Certificates & Glass Hover Animations */
-.cert-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: var(--transition);
+.cert-scroll-wrapper {
     display: flex;
-    flex-direction: row;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 1.5rem 0.5rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+}
+
+.cert-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cert-scroll-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+}
+
+.cert-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+.cert-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+
+.cert-card {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
     align-items: stretch;
-    height: 240px;
+    height: 400px;
 }
 
 .cert-card .project-img {
     position: relative;
     overflow: hidden;
-    width: 40%;
-    height: 100%;
+    width: 100%;
+    height: 180px;
     flex-shrink: 0;
 }
 
 .cert-card .project-info {
-    width: 60%;
+    width: 100%;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem 2rem;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.cert-card .project-info p {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 /* Glass Glare Sweep Effect */
@@ -1950,43 +1988,49 @@ nav.scrolled {
 }
 
 .project-info {
-    padding: 2rem;
+    width: 65%;
+    padding: 1.2rem 1.5rem;
     position: relative;
     background: var(--bg-secondary);
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-info h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
 
 .project-info p {
     color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .project-disclaimer {
-    display: block;
-    font-size: 0.85rem;
-    font-style: italic;
-    color: #ef4444;
-    margin-top: 0.8rem;
+    display: none;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.3rem;
+    margin-bottom: 0.8rem;
 }
 
 .tags span {
     background: var(--glass-bg);
-    padding: 0.4rem 0.8rem;
+    padding: 0.25rem 0.5rem;
     border-radius: 5px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     border: 1px solid var(--glass-border);
 }
@@ -2236,18 +2280,28 @@ footer i {
         padding: 4rem 5%;
     }
 
-    .cert-card {
+    .project-card {
         flex-direction: column;
         height: auto;
     }
     
-    .cert-card .project-img {
+    .project-card .project-img {
         width: 100%;
-        height: 200px;
+        height: 180px;
     }
     
-    .cert-card .project-info {
+    .project-card .project-info {
         width: 100%;
-        padding: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .project-card .project-info p {
+        -webkit-line-clamp: unset;
+        overflow: visible;
+    }
+
+    .cert-card {
+        flex: 0 0 280px;
+        height: 380px;
     }
 }
